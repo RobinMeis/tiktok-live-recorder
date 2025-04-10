@@ -28,7 +28,7 @@ from utils.custom_exceptions import LiveNotFound, ArgsParseError, \
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
+print("hi")
 def main():
     try:
         args, mode = validate_and_parse_args()
