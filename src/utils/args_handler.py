@@ -1,4 +1,4 @@
-import argparse
+import configargparse
 import re
 
 from utils.custom_exceptions import ArgsParseError
@@ -9,9 +9,9 @@ def parse_args():
     """
     Parse command line arguments.
     """
-    parser = argparse.ArgumentParser(
+    parser = configargparse.ArgumentParser(
         description="TikTok Live Recorder - A tool for recording live TikTok sessions.",
-        formatter_class=argparse.RawTextHelpFormatter
+        formatter_class=configargparse.RawTextHelpFormatter
     )
 
     parser.add_argument(

@@ -98,24 +98,24 @@ def install_ffmpeg_library():
         exit(1)
 
 
-def check_argparse_library():
+def check_configargparse_library():
     try:
-        import argparse
+        import configargparse
         return True
     except ModuleNotFoundError:
-        logger.error("argparse library is not installed")
+        logger.error("configargparse library is not installed")
         return False
 
 
-def install_argparse_library():
+def install_configargparse_library():
     try:
         subprocess.run(
-            [sys.executable, "-m", "pip", "install", "argparse", "--break-system-packages"],
+            [sys.executable, "-m", "pip", "install", "configargparse", "--break-system-packages"],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.STDOUT,
             check=True,
         )
-        logger.info("argparse installed successfully\n")
+        logger.info("configargparse installed successfully\n")
     except SubprocessError as e:
         logger.error(f"Error: {e}")
         exit(1)
@@ -176,8 +176,8 @@ def check_and_install_dependencies():
     if not check_ffmpeg_library():
         install_ffmpeg_library()
 
-    if not check_argparse_library():
-        install_argparse_library()
+    if not check_configargparse_library():
+        install_configargparse_library()
 
     if not check_requests_library():
         install_requests_library()
